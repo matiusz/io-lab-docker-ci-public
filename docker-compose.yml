@@ -8,6 +8,7 @@ services:
     - "5000:5000"
     volumes:
       - .:/code
+      - data:/data
     environment:
       # Makes flask to reload code on change
       FLASK_ENV: development
@@ -16,4 +17,6 @@ services:
   redis:
     image: redis:6.0-rc4-alpine
     # TODO: missing persistence for redis. You need to persist /data directory.
+volumes:
+    data:
 
